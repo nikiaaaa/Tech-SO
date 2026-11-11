@@ -1,0 +1,32 @@
+# NOT RUN in the authoring environment (Docker was not installed). PostgreSQL support is untested: see docs/DEPLOYMENT.md.
+# Usage:  copy .env.compose.example to .env.compose, edit secrets, then  docker compose --env-file .env.compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: techso
+      POSTGRES_USER: techso
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes: [dbdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U techso"], interval: 5s, retries: 10 }
+
+  backend:
+    build: ./backend
+    environment:
+      TECHSO_ENV: production
+      TECHSO_SECRET_KEY: ${TECHSO_SECRET_KEY:?set TECHSO_SECRET_KEY}
+      TECHSO_DATABASE_URL: postgresql+psycopg://techso:${POSTGRES_PASSWORD}@db:5432/techso
+      TECHSO_EVIDENCE_DIR: /srv/data/evidence
+      TECHSO_CORS_ORIGINS: '["https://${TECHSO_PUBLIC_HOST:-localhost}"]'
+    volumes: [evidence:/srv/data/evidence]
+    depends_on: { db: { condition: service_healthy } }
+    expose: ["8000"]
+
+  web:
+    build: ./frontend
+    ports: ["8080:80"]   # put a TLS-terminating proxy in front; do not expose plain http publicly
+    depends_on: [backend]
+
+volumes:
+  dbdata:
+  evidence:

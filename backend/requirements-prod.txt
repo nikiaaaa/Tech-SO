@@ -1,0 +1,3 @@
+-r requirements.txt
+# PostgreSQL driver for TECHSO_DATABASE_URL=postgresql+psycopg://...  (NOT exercised in this repo's tests: see docs/DEPLOYMENT.md)
+psycopg[binary]==3.2.3

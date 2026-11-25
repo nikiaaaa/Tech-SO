@@ -1,0 +1,36 @@
+Copyright (c) 2026 Arva Ditha Darmawan (SORA). All rights reserved.
+
+SOURCE-AVAILABLE NONCOMMERCIAL LICENSE, v1.0
+
+This license applies to the software, skill files, scripts, templates, and documentation in this repository (the "Work"). Any third-party material included in the Work (for example, upstream code from mromidev/claude-animated-shorts, MIT licensed) remains under its original license, and that license notice must be kept intact.
+
+1. GRANT
+Subject to these terms, you may view, use, copy, and modify the Work for personal, educational, and non-commercial purposes only.
+
+2. GITHUB
+This repository is hosted publicly on GitHub. Nothing in this license limits the rights that GitHub's Terms of Service give GitHub users to view and fork a public repository on GitHub. Those rights stop at GitHub: everything else in this license still applies to forks and copies.
+
+3. PROHIBITED USES
+You may NOT, without prior written permission from the copyright holder:
+  (a) sell, rent, lease, license for a fee, or otherwise commercially exploit the Work or any copy or derivative of it, including as part of a paid product, paid course, paid template pack, or paid service;
+  (b) redistribute the Work, or any substantial part of it, in source or compiled form, including by publishing a copy, a fork, or a mirror that is publicly accessible;
+  (c) use the Work, or any part of it, to train, fine-tune, benchmark, or otherwise develop any machine-learning or AI model or dataset;
+  (d) remove, obscure, or alter the copyright notice, this license, or the attribution to the upstream project.
+
+4. AI ASSISTANTS
+An AI assistant may read the Work and follow its instructions in order to help a person who is licensed under this license. Such assistance does not grant the assistant, its operator, or the person it helps any right to reproduce, distribute, or train on the Work beyond what this license allows. Output generated with help from the Work remains subject to Section 3(b) and 3(c) if it reproduces the Work or a substantial part of it.
+
+5. DERIVATIVES
+You may create modified versions for your own non-commercial use. You may not distribute a modified version except under the terms of this license, and every distributed modified version must clearly state that it was modified from this Work.
+
+6. ATTRIBUTION
+Any permitted use, copy, or modification must credit the original author ("Arva Ditha Darmawan / SORA") and link to the original repository, where available.
+
+7. NO WARRANTY
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE COPYRIGHT HOLDER IS NOT LIABLE FOR ANY CLAIM, DAMAGE, OR OTHER LIABILITY ARISING FROM THE USE OF THE WORK.
+
+8. TERMINATION
+Your rights under this license end automatically if you breach it. Termination does not affect any licence granted to others that was made before the breach.
+
+9. COMMERCIAL LICENSING
+For any commercial use, contact the copyright holder to request a separate written license.

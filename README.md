@@ -7,6 +7,56 @@ and a technician mobile app with offline support.
 > **Demo data only.** Every company, bank, person, address and incident in this repository is fictional and labelled DEMO.
 > Nothing here connects to a real bank or ATM system. Read the "What is and is not verified" section before relying on anything.
 
+## Setup untuk pemula (dan untuk AI yang membantu memasang)
+
+Tidak perlu tahu programming. Ikuti tiga langkah ini, lalu lanjut ke Quick start di bawah.
+
+**1. Pasang alat yang dibutuhkan** (cek dengan perintah di kolom kanan):
+
+| Alat | Cek dengan | Keterangan |
+|---|---|---|
+| Python 3.12 | `python --version` | https://python.org (centang "Add Python to PATH" saat memasang) |
+| Node.js 20+ | `node --version` | https://nodejs.org (versi LTS) |
+| Git | `git --version` | https://git-scm.com |
+
+**2. Clone repo lalu jalankan setup**, di PowerShell:
+
+```powershell
+git clone https://github.com/nikiaaaa/Tech-SO "$env:USERPROFILE\Documents\Tech-SO"
+cd "$env:USERPROFILE\Documents\Tech-SO"
+.\scripts\setup.ps1
+.\scripts\start.ps1
+```
+
+Lalu buka http://127.0.0.1:8000 dan masuk dengan akun demo di tabel bawah.
+
+**3. Atau minta Claude Code yang memasang.** Buka Claude Code di folder repo, lalu tempel:
+
+```
+Pasang aplikasi TechSO ini untuk saya. Cek python 3.12, node 20+, dan git terpasang (beri tahu cara
+memasang yang belum ada). Jalankan .\scripts\setup.ps1, lalu .\scripts\start.ps1. Jangan mengubah
+berkas .env tanpa bertanya, dan jangan memakai kata sandi selain yang ada di backend/.env.example.
+Laporkan alamat yang bisa dibuka dan akun demo yang bisa dipakai.
+```
+
+**Cek berhasil:** http://127.0.0.1:8000 terbuka, dan login sebagai `scheduler@demo.techso.local` menampilkan Overview.
+
+**Kalau tidak jalan:**
+
+| Masalah | Solusi |
+|---|---|
+| `running scripts is disabled` di PowerShell | Jalankan sekali: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, lalu coba lagi |
+| `python` tidak dikenal | Pasang ulang Python dan centang "Add Python to PATH", lalu buka terminal baru |
+| Port 8000 sudah dipakai | Tutup aplikasi lain yang memakai port itu, atau jalankan `start-backend.ps1` dengan port lain |
+| Login gagal | Pakai kata sandi demo dari `TECHSO_DEMO_PASSWORD` di `backend/.env.example`. Jangan dipakai di produksi |
+| GPS dan kamera tidak jalan di HP | Browser butuh HTTPS. Pakai `-Lan -Cert ... -Key ...` (lihat di bawah) |
+
+**Catatan keamanan:** aplikasi ini masih berisi data demo. Sebelum dipakai untuk data nyata, ikuti bagian "What is and is not verified" dan `docs/SECURITY.md`. Ganti `TECHSO_SECRET_KEY` dengan nilai acak yang panjang.
+
+## Lisensi
+
+Source-available, **non-komersial**. Boleh dilihat, dipakai, dan dimodifikasi untuk keperluan pribadi dan belajar. Dilarang dijual, didistribusikan ulang, atau dipakai untuk melatih model AI tanpa izin tertulis. Detail lengkap di [LICENSE](LICENSE).
+
 ## Quick start (Windows, Python 3.12, Node 20+)
 
 ```powershell
